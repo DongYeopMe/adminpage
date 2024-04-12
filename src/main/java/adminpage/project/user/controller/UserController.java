@@ -1,18 +1,28 @@
 package adminpage.project.user.controller;
 
 import adminpage.project.user.dto.SignupRequest;
+import adminpage.project.user.entity.User;
+import adminpage.project.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
+    final private UserService userService;
 
-    @PostMapping("/signup")
-    public String createUser(SignupRequest signupRequest){
-
+    @GetMapping("/signup")
+    public String saveFrom(){
+        return "user/addForm";
     }
+    @PostMapping("/signup")
+    public String createUser(@ModelAttribute("signupRequest") SignupRequest signupRequest){
+        userService.saveUser(signupRequest);
+
+        return "user/loginForm";
+    }
+
+
 }

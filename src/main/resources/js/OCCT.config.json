@@ -1,0 +1,344 @@
+{
+  "Version": 1000,
+  "WindowTop": 50,
+  "WindowLeft": 50,
+  "WindowWidth": 1525,
+  "WindowHeight": 900,
+  "IsWindowMaximized": false,
+  "IsMonitoringExpanded": true,
+  "EnabledTemperatureSensors": [
+    {
+      "DeviceName": "AMD Ryzen 7 5800X3D",
+      "Name": "CPU CCD1 (Tdie)",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Temperature",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledVoltageSensors": [
+    {
+      "DeviceName": "AMD Ryzen 7 5800X3D",
+      "Name": "Core 0 VID",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "ASUS TUF GAMING B550M-PLUS (Nuvoton NCT6798D)",
+      "Name": "+5V",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "ASUS TUF GAMING B550M-PLUS (Nuvoton NCT6798D)",
+      "Name": "3VCC",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "ASUS TUF GAMING B550M-PLUS (Nuvoton NCT6798D)",
+      "Name": "+12V",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Core Voltage",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledFanSensors": [
+    {
+      "DeviceName": "ASUS TUF GAMING B550M-PLUS (Nuvoton NCT6798D)",
+      "Name": "Chassis1",
+      "LocationIndex": 1
+    },
+    {
+      "DeviceName": "ASUS TUF GAMING B550M-PLUS (Nuvoton NCT6798D)",
+      "Name": "CPU",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "ASUS TUF GAMING B550M-PLUS (Nuvoton NCT6798D)",
+      "Name": "CPU_OPT",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Fan1",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Fan2",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledPowerSensors": [
+    {
+      "DeviceName": "AMD Ryzen 7 5800X3D",
+      "Name": "CPU Package Power",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Power",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledCurrentSensors": [
+    {
+      "DeviceName": "AMD Ryzen 7 5800X3D",
+      "Name": "CPU TDC",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledFrequencySensors": [
+    {
+      "DeviceName": "AMD Ryzen 7 5800X3D",
+      "Name": "Core 0 Clock (perf #1/1)",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Clock",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Memory Clock",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledUsageSensors": [
+    {
+      "DeviceName": "System",
+      "Name": "Physical Memory Load",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "AMD Ryzen 7 5800X3D",
+      "Name": "Total CPU Usage",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Core Load",
+      "LocationIndex": 0
+    },
+    {
+      "DeviceName": "NVIDIA GeForce RTX 3070 Ti",
+      "Name": "GPU Memory Usage",
+      "LocationIndex": 0
+    }
+  ],
+  "EnabledOtherSensors": [
+    {
+      "DeviceName": "Windows Hardware Errors (WHEA)",
+      "Name": "Total Errors",
+      "LocationIndex": 0
+    }
+  ],
+  "MonitoringUpdateInterval": 2,
+  "MonitoringUpdateIntervalUnit": "Seconds",
+  "GraphUpdateInterval": 2,
+  "GraphUpdateIntervalUnit": "Seconds",
+  "TemperatureAlertValue": 90,
+  "IsTemperatureAlertValueEnabled": false,
+  "Language": "Auto",
+  "MonitoringTableSize": "*",
+  "MonitoringGraphSize": "*",
+  "Monitoring": true,
+  "TestingGraphSize": "*",
+  "TestingTableSize": "*",
+  "SelectedMonitoringIndex": 0,
+  "SelectedArea": 1,
+  "CheckForUpdates": "Stable",
+  "SaveReportPath": "C:\\Users\\sky2307\\Documents",
+  "SaveScreenshotPath": "C:\\Users\\sky2307\\Documents",
+  "MotherboardName": "ASUS TUF GAMING B550M-PLUS",
+  "SelectedComponentUsage": "시스템",
+  "TestingAreaDisplayMode": "TableAndGraph",
+  "TestingAreaSensorClass": "Temperature",
+  "TestingAreaTableConfig": {
+    "SensorGroup": "DeviceType",
+    "SortDescription": {
+      "Direction": 0,
+      "IsSealed": false
+    },
+    "EnabledSensorFilter": "All",
+    "DeviceTypeFilters": [
+      "Cpu",
+      "Gpu",
+      "Motherboard",
+      "Storage",
+      "Memory",
+      "Other"
+    ]
+  },
+  "MonitoringAreaSensorClass": "Temperature",
+  "MonitoringAreaDisplayMode": "TableAndGraph",
+  "MonitoringAreaTableConfig": {
+    "SensorGroup": "DeviceType",
+    "SortDescription": {
+      "Direction": 0,
+      "IsSealed": false
+    },
+    "EnabledSensorFilter": "All",
+    "DeviceTypeFilters": [
+      "Cpu",
+      "Gpu",
+      "Motherboard",
+      "Storage",
+      "Memory",
+      "Other"
+    ]
+  },
+  "RenderMode": 1,
+  "StopOnError": false,
+  "SelectedBenchmark": "CpuBenchmark",
+  "MonitoringEcEnable": true,
+  "MonitoringSmBusEnable": true,
+  "MonitoringGpuI2CEnable": false,
+  "MonitoringDriveScanEnable": false,
+  "MonitoringCsmiSasEnable": false,
+  "MonitoringImeEnable": false,
+  "MonitoringCorsairAsetekEnable": false,
+  "MonitoringDebugModeEnable": false,
+  "AllowOcbaseUpload": true,
+  "Skin": 0,
+  "LicenseExpirationWarningLastDisplay": 999,
+  "SchedulePeriod": {
+    "Duration": "00:30:00",
+    "Version": "800",
+    "IsInfinite": true,
+    "TestType": "CpuOcct",
+    "CpuOcctConfig": {
+      "DataSet": "Large",
+      "OcctInstructionSet": "Auto",
+      "LoadType": "Variable",
+      "Mode": "Normal",
+      "Threads": "Auto",
+      "FixedThreadCount": 16,
+      "StartAtCycle": 1,
+      "AdvancedThreadConfig": {
+        "ThreadSettingsThreads": "Physical",
+        "CycleActiveCore": "Disabled",
+        "SwapActiveCore": "Disabled",
+        "CycleActiveCoreInterval": 3,
+        "CycleActiveCoreIntervalUnit": "Seconds",
+        "SwapActiveCoreInterval": 5,
+        "SwapActiveCoreIntervalUnit": "Seconds",
+        "CoreActive": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "CpuLinpackConfig": {
+      "Version": "v2019",
+      "Threads": "PhysicalAndVirtual",
+      "Memory": 2048
+    },
+    "MemoryConfig": {
+      "MemoryInPercent": 80,
+      "MemoryMemUnit": "Percent",
+      "Threads": "Auto",
+      "FixedThreadCount": 16,
+      "InstructionSet": "Auto"
+    },
+    "Gpu3dConfig": {
+      "Mode": "ErrorDetection",
+      "UsageLimit": 100,
+      "ShaderComplexity": 3,
+      "GpuIndexes": [],
+      "TestAllGpus": false
+    },
+    "VramConfig": {
+      "GpuIndex": 0,
+      "MemoryInMiB": 0,
+      "MemoryInPercent": 80,
+      "MemoryMemUnit": "Percent"
+    },
+    "PowerSupplyConfig": {
+      "CpuOcctInstructionSet": "Auto",
+      "GpuIndexes": []
+    },
+    "CpuBenchmarkConfig": {
+      "Run": 0,
+      "Threads": "Single",
+      "InstructionSet": "Sse"
+    },
+    "MemoryBenchmarkConfig": {
+      "Run": 0,
+      "BenchmarkType": "Read"
+    }
+  },
+  "BenchSchedulePeriod": {
+    "Duration": "00:30:00",
+    "Version": "800",
+    "IsInfinite": true,
+    "TestType": "CpuBenchmark",
+    "CpuOcctConfig": {
+      "DataSet": "Large",
+      "OcctInstructionSet": "Auto",
+      "LoadType": "Variable",
+      "Mode": "Normal",
+      "Threads": "Auto",
+      "FixedThreadCount": 0,
+      "StartAtCycle": 1,
+      "AdvancedThreadConfig": {
+        "ThreadSettingsThreads": "Physical",
+        "CycleActiveCore": "Disabled",
+        "SwapActiveCore": "Disabled",
+        "CycleActiveCoreInterval": 3,
+        "CycleActiveCoreIntervalUnit": "Seconds",
+        "SwapActiveCoreInterval": 5,
+        "SwapActiveCoreIntervalUnit": "Seconds",
+        "CoreActive": []
+      }
+    },
+    "CpuLinpackConfig": {
+      "Version": "v2019",
+      "Threads": "PhysicalAndVirtual",
+      "Memory": 2048
+    },
+    "MemoryConfig": {
+      "MemoryInPercent": 80,
+      "MemoryMemUnit": "Percent",
+      "Threads": "Auto",
+      "FixedThreadCount": 0,
+      "InstructionSet": "Auto"
+    },
+    "Gpu3dConfig": {
+      "Mode": "ErrorDetection",
+      "UsageLimit": 100,
+      "ShaderComplexity": 3,
+      "GpuIndexes": [],
+      "TestAllGpus": false
+    },
+    "VramConfig": {
+      "GpuIndex": 0,
+      "MemoryInMiB": 0,
+      "MemoryInPercent": 80,
+      "MemoryMemUnit": "Percent"
+    },
+    "PowerSupplyConfig": {
+      "CpuOcctInstructionSet": "Auto",
+      "GpuIndexes": []
+    },
+    "CpuBenchmarkConfig": {
+      "Run": 0,
+      "Threads": "Single",
+      "InstructionSet": "Sse"
+    },
+    "MemoryBenchmarkConfig": {
+      "Run": 0,
+      "BenchmarkType": "Read"
+    }
+  }
+}

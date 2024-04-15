@@ -4,12 +4,12 @@ import adminpage.project.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Setter
-@Getter
 @Entity
 @Builder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

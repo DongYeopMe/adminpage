@@ -4,13 +4,11 @@ import adminpage.project.product.entity.Category;
 import adminpage.project.product.entity.Product;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @Setter
+@Builder
 @Getter
 @NoArgsConstructor
 public class ProductRequest {

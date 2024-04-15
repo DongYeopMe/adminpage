@@ -14,14 +14,22 @@ public class UserController {
     final private UserService userService;
 
     @GetMapping("/signup")
-    public String saveFrom(){
+    public String saveForm(){
         return "user/addForm";
     }
     @PostMapping("/signup")
     public String createUser(@ModelAttribute("signupRequest") SignupRequest signupRequest){
         userService.saveUser(signupRequest);
 
+        return "redirect:user/loginForm";
+    }
+    @GetMapping("/login")
+    public String loginForm(){
         return "user/loginForm";
+    }
+    @PostMapping("/login")
+    public void login(){
+
     }
 
 

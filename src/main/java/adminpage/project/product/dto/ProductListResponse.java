@@ -4,12 +4,14 @@ import adminpage.project.product.entity.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class ProductListResponse {
     @NotBlank(message = "모델명 입력해주세요")
     private String name;

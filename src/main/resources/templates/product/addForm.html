@@ -17,18 +17,18 @@
         </div>
         <h4 class="mb-3"> 상품 추가</h4>
 
-        <form action="" th:action th:object="${product}" method="post">
+        <form th:action="@{/products/add}" th:object="${productRequest}" method="post">
             <div>
                 <label for="code" >코드</label>
                 <input id="code" type="text" th:field="*{code}" class="form-control" placeholder="코드를 입력하세요">
             </div>
-<!--            <div><div>카테고리</div>-->
-<!--                <select th:field="*{category}" class = "form-select">-->
-<!--                    <option value="">==종류 선택==</option>-->
-<!--                    <option th:each="categoryValue : ${T(project.product.entity.Category).values()}" th:value="${categoryValue}"-->
-<!--                    th:text="${categoryValue.getDescription()}"></option>-->
-<!--                </select>-->
-<!--            </div>-->
+            <div><div>카테고리</div>
+                <select th:field="*{category}" class = "form-select">
+                    <option value="">==종류 선택==</option>
+                    <option th:each="categoryValue : ${T(project.product.entity.Category).values()}" th:value="${categoryValue}"
+                    th:text="${categoryValue.getDescription()}"></option>
+                </select>
+            </div>
             <div>
                 <label for="company" >제조사</label>
                 <input id="company" type="text" th:field="*{company}" class="form-control" placeholder="제조사를 입력하세요">
@@ -60,7 +60,8 @@
                 </div>
                 <div class="col">
                     <button class="w-100 btn btn-secondary btn-lg"
-
+                            onclick="location.href='products.html'"
+                            th:onclick = "|location.href='@{/product/products}'|"
                             type="button">취소</button>
                 </div>
             </div>

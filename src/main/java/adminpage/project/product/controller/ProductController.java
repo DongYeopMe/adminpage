@@ -2,6 +2,7 @@ package adminpage.project.product.controller;
 
 import adminpage.project.global.BusinessException;
 import adminpage.project.global.ResultResponse;
+import adminpage.project.product.dto.ProductListResponse;
 import adminpage.project.product.dto.ProductRequest;
 import adminpage.project.product.entity.Category;
 import adminpage.project.product.entity.Product;
@@ -27,9 +28,10 @@ import static adminpage.project.global.ResultCode.MEMBER_DELETE_SUCCESS;
 public class ProductController {
     final ProductService productService;
     final ProductRepository productRepository;
+    //추가
     @GetMapping("/add")
-    public String addForm(Model model){
-        model.addAttribute("product",new Product());
+    public String addForm(Model model, ProductRequest productRequest){
+        model.addAttribute("productRequest",new ProductRequest());
         return "product/addForm";
     }
     @PostMapping("/add")
@@ -37,7 +39,7 @@ public class ProductController {
         productService.saveProduct(productRequest);
         return "redirect:/products/list";
     }
-
+    // 수정
     @GetMapping("/edit/{productId}")
     public String editForm(@PathVariable Long productId, Model model) {
         Optional<Product> product = productRepository.findById(productId);
@@ -45,22 +47,24 @@ public class ProductController {
         model.addAttribute("product", product1);
         return "product/editForm";
     }
-    @PatchMapping("/{productId}/edit")
+    @PostMapping("/edit/{productId}")
     public String edit(@PathVariable Long productId, @ModelAttribute ProductRequest productRequest) {
         productService.updateProduct(productId,productRequest);
         return "redirect:/form/product/{productId}";
     }
+    //상세 조회
     @GetMapping("/getOne/{productId}")
     public String product(Model model,@PathVariable Long productId) {
         ProductRequest productResponse = productService.getProduct(productId);
         model.addAttribute("productResponse", productResponse);
-        return "form/product";
+        return "product/product";
     }
-    @GetMapping("/getList")
+    // 리스트 조회
+    @GetMapping("/list")
     public String products(Model model) {
-        List<Product> products = productService.getProducts();
-        model.addAttribute("products", products);
-        return "form/products";
+        List<ProductListResponse> products = productService.getProducts();
+        model.addAttribute("productList", products);
+        return "product/products";
     }
     @DeleteMapping("/{productId}")
     public ResponseEntity<ResultResponse> deleteProduct(@PathVariable Long productId){

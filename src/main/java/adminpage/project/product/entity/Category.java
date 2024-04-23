@@ -17,4 +17,7 @@ public enum Category {
     Category(String desciption) {
         this.desciption = desciption;
     }
+    public String getDescription() {
+        return this.desciption;
+    }
 }

@@ -20,7 +20,7 @@
     <form th:action="@{/products/add}" th:object="${productRequest}" method="post">
       <div>
         <label for="code" >코드</label>
-        <input type="text" th:field="*{code}" class="form-control" placeholder="코드를 입력하세요">
+        <input id = "code" type="text" th:field="*{code}" class="form-control" placeholder="코드를 입력하세요">
       </div>
       <div><div>카테고리</div>
         <select th:field="${category}" class = "form-select">
@@ -31,19 +31,19 @@
       </div>
       <div>
         <label for="company" >제조사</label>
-        <input type="text" th:field="*{company}" class="form-control" placeholder="제조사를 입력하세요">
+        <input id = "company"type="text" th:field="*{company}" class="form-control" placeholder="제조사를 입력하세요">
       </div>
       <div>
         <label for="name" >상품명</label>
-        <input type="text" th:field="*{name}" class="form-control" placeholder="상품명을 입력하세요">
+        <input id = "name" type="text" th:field="*{name}" class="form-control" placeholder="상품명을 입력하세요">
       </div>
       <div>
         <label for="price" >가격</label>
-        <input type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
+        <input id = "price" type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
       </div>
       <div>
         <label for="quantity" >수량</label>
-        <input type="text" th:field="*{quantity}" class="form-control" placeholder="가격을 입력하세요">
+        <input id = "quantity" type="text" th:field="*{quantity}" class="form-control" placeholder="가격을 입력하세요">
       </div>
 
       <div>판매 여부</div>

@@ -23,10 +23,18 @@
                 <input id="code" type="text" th:field="*{code}" class="form-control" placeholder="코드를 입력하세요">
             </div>
             <div><div>카테고리</div>
-                <select th:field="*{category}" class = "form-select">
+<!--                <select th:field="*{category}" class = "form-select">-->
+<!--                    <option value="">==종류 선택==</option>-->
+<!--                    <option th:each="categoryValue : ${T(project.product.entity.Category).values()}" th:value="${categoryValue}"-->
+<!--                    th:text="${categoryValue.getDescription()}"></option>-->
+<!--                </select>-->
+                <select class="form-control" name="*{category}">
                     <option value="">==종류 선택==</option>
-                    <option th:each="categoryValue : ${T(project.product.entity.Category).values()}" th:value="${categoryValue}"
-                    th:text="${categoryValue.getDescription()}"></option>
+                    <option th:each="categoryValue : ${T(adminpage.project.product.entity.Category).values()}"
+                            th:value="${categoryValue.name()}"
+                            th:text="${categoryValue.getDescription()}">
+<!--                            th:selected="${condition?.level?.name() eq level.name()} ? 'true' : 'false'">-->
+                    </option>
                 </select>
             </div>
             <div>

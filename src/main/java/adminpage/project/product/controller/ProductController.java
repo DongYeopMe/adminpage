@@ -30,7 +30,7 @@ public class ProductController {
     final ProductRepository productRepository;
     //추가
     @GetMapping("/add")
-    public String addForm(Model model, ProductRequest productRequest){
+    public String addForm(Model model){
         model.addAttribute("productRequest",new ProductRequest());
         return "product/addForm";
     }

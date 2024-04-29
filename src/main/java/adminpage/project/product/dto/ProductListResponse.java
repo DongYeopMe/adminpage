@@ -13,21 +13,16 @@ import lombok.Setter;
 @Setter
 @Builder
 public class ProductListResponse {
-    @NotBlank(message = "모델명 입력해주세요")
+
+    private Long id;
+
     private String name;
 
-    @NotBlank(message = "코드 입력해주세요" )
     private String code;
 
-    @NotNull(message = "카테고리 선택해주세요")
     private Category category;
 
-    @NotBlank(message = "제조사 입력해주세요")
-    private String company;
-
-    @NotBlank(message = "모델명 입력해주세요")
-    private int quantity;
-
-    @NotBlank(message = "가격 입력해주세요")
     private int price;
+
+    private boolean open;
 }

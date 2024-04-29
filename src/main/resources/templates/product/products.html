@@ -1,39 +1,49 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      layout:fragment="content">
 <head>
-    <meta charset="utf-8">
-    <link href="../../static/css/bootstrap.min.css"
-          th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 <div class="container" style="max-width: 600px">
     <div class="py-5 text-center">
-        <h2>상품 목록</h2>
+        <h1>상품 목록</h1>
     </div>
-    <div class="row">
-        <div
-                class="col">
-            <button class="btn btn-primary float-end"
-                    onclick="location.href='addForm.html'" type="button"
-                    th:onclick = "|location.href='@{/products/add}'|">상품 등록
-
-            </button>
+    <form th:action th:object="${productList}">
+        <div class="row">
+            <div class="col" style="width: 150px; float: right;">
+                <button type="submit" class="btn btn-primary">검색</button>
+                <button class="btn btn-primary float-end"
+                        onclick="location.href='addForm.html'" type="button"
+                        th:onclick = "|location.href='@{/products/add}'|">상품 등록
+                </button>
+            </div>
         </div>
-    </div>
+    </form>
     <hr class="my-4">
     <div>
         <table class="table">
             <thead>
             <tr>
                 <th>번호</th>
-                <th>상품명</th>
+                <th>모델명</th>
+                <th>코드</th>
+                <th>카테고리</th>
                 <th>가격</th>
-                <th>수량</th>
+                <th>판매 여부</th>
+
             </tr>
             </thead>
             <tbody>
-            <tr>
-
+            <tr th:each="product : ${productList}">
+                <td ><a th:href="@{/products/getOne/{productId}(productId=${product.id})}" th:text="${product.id}"></a></td>
+                <td><a th:href="@{/products/getOne/{productId}(productId=${product.id})}" th:text="${product.name}"></a></td>
+                <td th:text="${product.code}">[코드]</td>
+                <td th:text="${product.category}">[카테고리]</td>
+                <td th:text="${product.price}">[가격]</td>
+                <td th:text="${product.open}"></td>
             </tr>
             </tbody>
         </table>

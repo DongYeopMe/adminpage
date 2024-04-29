@@ -1,12 +1,13 @@
 package adminpage.project.product.entity;
 
-import adminpage.project.user.entity.User;
+import adminpage.project.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
@@ -19,27 +20,16 @@ public class Product {
     @Column(name="name",nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @Column(name="product_code",nullable = false,unique = true)
     private String code;
 
     @Column(name="category",nullable = false)
+    @Enumerated(EnumType.STRING)
     private Category category;
-
-    @Column(name="company",nullable = false)
-    private String company;
-
-    @Column(name="quantity", nullable = false)
-    private int quantity;
 
     @Column(name="price", nullable = false)
     private int price;
 
     @Column(name="open", nullable = false)
     private Boolean open;
-
-
 }

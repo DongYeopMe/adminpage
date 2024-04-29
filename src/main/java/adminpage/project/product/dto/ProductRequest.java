@@ -21,13 +21,7 @@ public class ProductRequest {
     @NotNull(message = "카테고리 선택해주세요")
     private Category category;
 
-    @NotBlank(message = "제조사 입력해주세요")
-    private String company;
-
-    @NotBlank(message = "모델명 입력해주세요")
-    private int quantity;
-
-    @NotBlank(message = "가격 입력해주세요")
+    @NotNull(message = "가격 입력해주세요")
     private int price;
 
     private boolean open;
@@ -36,8 +30,6 @@ public class ProductRequest {
         Product product= Product.builder().name(name)
                 .code(code)
                 .category(category)
-                .company(company)
-                .quantity(quantity)
                 .price(price)
                 .open(open).build();
         return product;
@@ -48,8 +40,6 @@ public class ProductRequest {
         productRequest.setName(product.getName());
         productRequest.setCode(product.getCode());
         productRequest.setCategory(product.getCategory());
-        productRequest.setCompany(product.getCompany());
-        productRequest.setQuantity(product.getQuantity());
         productRequest.setPrice(product.getPrice());
         productRequest.setOpen(productRequest.isOpen());
         return productRequest;

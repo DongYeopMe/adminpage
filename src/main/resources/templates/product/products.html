@@ -7,18 +7,28 @@
 <head>
 </head>
 <body>
-<div class="container" style="max-width: 600px">
+<div class="container">
     <div class="py-5 text-center">
         <h1>상품 목록</h1>
     </div>
-    <form th:action th:object="${productList}">
+    <form th:action th:object="${productListRequest}">
         <div class="row">
-            <div class="col" style="width: 150px; float: right;">
-                <button type="submit" class="btn btn-primary">검색</button>
-                <button class="btn btn-primary float-end"
-                        onclick="location.href='addForm.html'" type="button"
-                        th:onclick = "|location.href='@{/products/add}'|">상품 등록
-                </button>
+            <div class="col" style="width: 150px; float: left;">
+                <select class="form-control" name="category" style="width: 150px; float: left;">
+                    <option value="">==종류 선택==</option>
+                    <option th:each="category : ${T(adminpage.project.product.entity.Category).values()}"
+                            th:value="${category.name()}"
+                            th:text="${category.name()}"
+                            th:selected="${productListRequest?.category?.name() eq category.name()} ? 'true' : 'false'">
+                    </option>
+                </select>
+                <select class="form-control"style="width: 150px; float: left;">
+                    <option>검색 내용 선택</option>
+                    <option>코드</option>
+                    <option>모델명</option>
+                </select>
+                    <input type="text" class="form-control" id="searchKeyword" style="float: right;">
+                    <button type="submit" class="btn btn-primary" style="float: right;">검색</button>
             </div>
         </div>
     </form>
@@ -48,6 +58,13 @@
             </tbody>
         </table>
     </div>
+    <div>
+        <button class="btn btn-primary float-end"
+                onclick="location.href='addForm.html'" type="button"
+                th:onclick = "|location.href='@{/products/add}'|">상품 등록
+        </button>
+    </div>
 </div>
+<script type="text/javascript"></<script !src=""></script>
 </body>
 </html>

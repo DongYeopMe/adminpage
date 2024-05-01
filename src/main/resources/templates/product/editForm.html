@@ -32,7 +32,7 @@
         <input id="code" type="text" th:field="*{code}" class="form-control" placeholder="코드를 입력하세요">
       </div>
       <div><div>카테고리</div>
-        <select class="form-control" name="*{category}">
+        <select class="form-control" name="category">
           <option value="">==종류 선택==</option>
           <option th:each="category : ${T(adminpage.project.product.entity.Category).values()}"
                   th:value="${category.name()}"
@@ -50,12 +50,10 @@
         <input id="price" type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
       </div>
       <div>판매 여부</div>
-      <div>
         <div class="form-check">
           <input type="checkbox" id="open" th:field="*{open}" class="form-check-input">
           <label for="open" class="form-check-label">판매 오픈</label>
         </div>
-      </div>
       <hr class="my-4">
       <div class="row">
         <div class="col">

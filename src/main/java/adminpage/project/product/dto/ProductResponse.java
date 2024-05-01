@@ -28,7 +28,7 @@ public class ProductResponse {
         productResponse.setCode(product.getCode());
         productResponse.setCategory(product.getCategory());
         productResponse.setPrice(product.getPrice());
-        productResponse.setOpen(productResponse.isOpen());
+        productResponse.setOpen(product.getOpen());
         return productResponse;
     }
 }

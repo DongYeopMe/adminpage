@@ -2,6 +2,7 @@ package adminpage.project.product.service;
 
 import adminpage.project.global.BusinessException;
 import adminpage.project.global.ErrorCode;
+import adminpage.project.product.dto.ProductListRequest;
 import adminpage.project.product.dto.ProductListResponse;
 import adminpage.project.product.dto.ProductRequest;
 import adminpage.project.product.dto.ProductResponse;
@@ -32,7 +33,7 @@ public class ProductService {
     }
     @Transactional
     public void updateProduct(Long productId,ProductRequest productRequest){
-        Product findproduct = productRepository.findById(productId).orElseThrow(() -> new BusinessException(PRODUCT_NOT_FOUND));;
+        Product findproduct = productRepository.findById(productId).orElseThrow(() -> new BusinessException(PRODUCT_NOT_FOUND));
         findproduct.setCategory(productRequest.getCategory());
         findproduct.setName(productRequest.getName());
         findproduct.setCode(productRequest.getCode());
@@ -50,7 +51,7 @@ public class ProductService {
                 ()-> new BusinessException(PRODUCT_NOT_FOUND));
         return productConvertProductResponse(product);
     }
-    public List<ProductListResponse> getProducts(){
+    public List<ProductListResponse> getProducts(ProductListRequest productListRequest){
         List<ProductListResponse> productListResponseList = new ArrayList<>();
         List<Product> productList= productRepository.findAll();
         int size = productList.size();

@@ -1,6 +1,5 @@
 package adminpage.project.product.entity;
 
-import adminpage.project.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,9 +1,12 @@
 package adminpage.project.product.dto;
 
 import adminpage.project.product.entity.Category;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductListRequest {
     private Category category;
 

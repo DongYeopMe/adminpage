@@ -48,7 +48,6 @@ public class ProductController {
     @GetMapping("/edit/{productId}")
     public String editForm(@PathVariable Long productId, Model model) {
         ProductResponse productResponse = productService.getProduct(productId);
-        log.info("category{}",productResponse.getCategory());
         model.addAttribute("productResponse", productResponse);
         return "product/editForm";
     }
@@ -67,10 +66,12 @@ public class ProductController {
     }
     // 상품 리스트 조회
     @GetMapping("/list")
-    public String products(Model model ,ProductListRequest productListRequest) {
+    public String products(Model model ,@ModelAttribute ProductListRequest productListRequest) {
         List<ProductListResponse> products = productService.getProducts(productListRequest);
-        model.addAttribute("productList", products);
         model.addAttribute("productListRequest",productListRequest);
+        model.addAttribute("productList", products);
+        log.info("",productListRequest.getName());
+        log.info("",productListRequest.getCode());
         return "product/products";
     }
     //상품 삭제

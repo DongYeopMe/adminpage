@@ -22,12 +22,12 @@
                             th:selected="${productListRequest?.category?.name() eq category.name()} ? 'true' : 'false'">
                     </option>
                 </select>
-                <select class="form-control"style="width: 150px; float: left;">
-                    <option>검색 내용 선택</option>
-                    <option>코드</option>
-                    <option>모델명</option>
+                <select class="form-control" style="width: 150px; float: left;">
+                    <option value="">검색 내용 선택</option>
+                    <option th:value="*{code}">코드</option>
+                    <option th:value="*{name}">모델명</option>
                 </select>
-                    <input type="text" class="form-control" id="searchKeyword" style="float: right;">
+                    <input type="search" class="form-control" id="searchKeyword" style="float: right;">
                     <button type="submit" class="btn btn-primary" style="float: right;">검색</button>
             </div>
         </div>

@@ -3,15 +3,13 @@ package adminpage.project.product.dto;
 import adminpage.project.product.entity.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
 public class ProductListResponse {
 
     private Long id;

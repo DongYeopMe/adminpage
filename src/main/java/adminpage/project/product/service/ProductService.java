@@ -52,22 +52,8 @@ public class ProductService {
         return productConvertProductResponse(product);
     }
     public List<ProductListResponse> getProducts(ProductListRequest productListRequest){
-        List<ProductListResponse> productListResponseList = new ArrayList<>();
-        List<Product> productList= productRepository.findAll();
-        int size = productList.size();
-            for (int i = 0; i < size; i++) {
-                Product product=productList.get(i);
-                ProductListResponse response = ProductListResponse.builder()
-                        .id(product.getId())
-                        .name(product.getName())
-                        .code(product.getCode())
-                        .category(product.getCategory())
-                        .price(product.getPrice())
-                        .open(product.getOpen())
-                        .build();
-                productListResponseList.add(response);
-            }
-        return productListResponseList;
+        List<ProductListResponse> productList= productRepository.findByProductsByCodeOrNameOrCategory(productListRequest);
+        return productList;
     }
 
 }

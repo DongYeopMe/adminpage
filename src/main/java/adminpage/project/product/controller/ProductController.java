@@ -68,10 +68,8 @@ public class ProductController {
     @GetMapping("/list")
     public String products(Model model ,@ModelAttribute ProductListRequest productListRequest) {
         List<ProductListResponse> products = productService.getProducts(productListRequest);
-        model.addAttribute("productListRequest",productListRequest);
         model.addAttribute("productList", products);
-        log.info("",productListRequest.getName());
-        log.info("",productListRequest.getCode());
+        model.addAttribute("productListRequest",productListRequest);
         return "product/products";
     }
     //상품 삭제

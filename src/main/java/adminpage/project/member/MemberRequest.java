@@ -3,14 +3,14 @@ package adminpage.project.member;
 import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Member;
 import adminpage.project.member.entity.Rank;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 @AllArgsConstructor
+@Setter
+@Builder
 @Getter
-public class SignupRequest {
-
+@NoArgsConstructor
+public class MemberRequest {
     private String email;
 
     private String password;
@@ -18,7 +18,8 @@ public class SignupRequest {
     private Gender gender;
 
     private Rank rank;
-    Member covertMember(SignupRequest signupRequest){
+
+    public Member covertMember(MemberRequest memberRequest){
         return Member.builder().
                 email(email).password(password).gender(gender).rank(rank).build();
     }

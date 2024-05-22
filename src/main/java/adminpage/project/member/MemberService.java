@@ -19,9 +19,10 @@ public class MemberService {
         Member member=signupRequest.covertMember(signupRequest);
         memberRepository.save(member);
     }
-    public void update(Long memberId,MemberRequest memberRequest){
+    public void updateMember(Long memberId,MemberRequest memberRequest){
         Member member=memberRepository.findById(memberId).orElseThrow(() ->new BusinessException(ErrorCode.MEMBER_NOT_FOUND));
         member.setEmail(memberRequest.getEmail());
+        member.setName(memberRequest.getName());
         member.setPassword(memberRequest.getPassword());
         member.setGender(memberRequest.getGender());
         member.setRank(memberRequest.getRank());

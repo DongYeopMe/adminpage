@@ -15,12 +15,9 @@ public class MemberRequest {
 
     private String password;
 
+    private String name;
+
     private Gender gender;
 
     private Rank rank;
-
-    public Member covertMember(MemberRequest memberRequest){
-        return Member.builder().
-                email(email).password(password).gender(gender).rank(rank).build();
-    }
 }

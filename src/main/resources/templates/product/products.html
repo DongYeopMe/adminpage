@@ -44,7 +44,7 @@
             </thead>
             <tbody>
             <tr th:each="product : ${productList}">
-                <td ><a th:href="@{/products/getOne/{productId}(productId=${product.id})}" th:text="${product.id}"></a></td>
+                <td><a th:href="@{/products/getOne/{productId}(productId=${product.id})}" th:text="${product.id}"></a></td>
                 <td><a th:href="@{/products/getOne/{productId}(productId=${product.id})}" th:text="${product.name}"></a></td>
                 <td th:text="${product.code}">[코드]</td>
                 <td th:text="${product.category}">[카테고리]</td>

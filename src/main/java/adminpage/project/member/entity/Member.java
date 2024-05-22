@@ -21,8 +21,12 @@ public class Member {
     private String email;
     @Column(name="member_password")
     private String password;
+    @Column(name="member_name")
+    private String name;
     @Column(name="member_gender")
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     @Column(name="member_rank")
+    @Enumerated(EnumType.STRING)
     private Rank rank;
 }

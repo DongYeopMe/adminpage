@@ -16,26 +16,26 @@ public class MemberController {
 
     @GetMapping("/add")
     public String addForm(Model model){
-        model.addAttribute("member",new Member());
+        model.addAttribute("signupRequest",new SignupRequest());
         return "member/addForm";
     }
     @PostMapping("/add")
     public String addMember(SignupRequest signupRequest){
         memberService.save(signupRequest);
-        return "redirect::/member/list";
+        return "redirect:/member/getMemberList";
     }
     @GetMapping("/edit/{memberId}")
     public String editForm(@PathVariable Long memberId,Model model){
         MemberResponse memberResponse = memberService.getMember(memberId);
         model.addAttribute("memberResponse",memberResponse);
-        return "member/member";
+        return "member/editForm";
     }
     @PostMapping("/edit/{memberId}")
     public String editMember(@PathVariable Long memberId ,@ModelAttribute MemberRequest memberRequest){
-        memberService.update(memberId,memberRequest);
-        return "redirect::/member/list";
+        memberService.updateMember(memberId,memberRequest);
+        return "redirect:/member/getMemberList";
     }
-    @GetMapping("/getMember/{MemberId}")
+    @GetMapping("/getMember/{memberId}")
     public String getMember(@PathVariable Long memberId, Model model){
         MemberResponse memberResponse = memberService.getMember(memberId);
         model.addAttribute("memberResponse",memberResponse);

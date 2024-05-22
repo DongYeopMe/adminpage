@@ -4,11 +4,13 @@ import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Member;
 import adminpage.project.member.entity.Rank;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 @AllArgsConstructor
+@Setter
+@Builder
 @Getter
+@NoArgsConstructor
 public class SignupRequest {
 
     private String email;

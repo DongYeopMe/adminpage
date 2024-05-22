@@ -11,7 +11,11 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 public class MemberResponse {
+    private Long id;
+
     private String email;
+
+    private String name;
 
     private Gender gender;
 
@@ -19,7 +23,9 @@ public class MemberResponse {
 
     public static MemberResponse covertmemberResponse(Member member){
         MemberResponse memberResponse= new MemberResponse();
+        memberResponse.setId(member.getId());
         memberResponse.setEmail(member.getEmail());
+        memberResponse.setName(member.getName());
         memberResponse.setGender(member.getGender());
         memberResponse.setRank(member.getRank());
         return memberResponse;

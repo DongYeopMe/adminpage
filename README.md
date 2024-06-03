@@ -1,4 +1,5 @@
 #   카페 관리페이지 구현
+![image](https://github.com/DongYeopMe/adminpage/assets/70151275/c7ca1293-2fb1-4b85-928b-4e95cebf77ca)
 
 ## 사용기술
 - Spring Boot 3.2
@@ -7,7 +8,18 @@
 - Spring Data JPA
 - Thymeleaf
 - Javascript
-- Thymeleaf
+
+## 구현 기능
+- 회원
+  - 회원가입
+  - 회원 조회
+  - 회원 목록 조회
+  - 회원 수정
+- 상품
+  - 상품 추가
+  - 상품 조회
+  - 상품 목록 조회
+  - 상품 수정
 
 
 ## 배운 내용

@@ -21,7 +21,7 @@
         </div>
         <h4 class="mb-3"> 상품 추가</h4>
 
-        <form action="product.html" th:action th:object="${productRequest}" method="post">
+        <form action="product.html" th:action th:object="${productForm}" method="post">
             <div>
                 <label for="code" >코드</label>
                 <input id="code" type="text" th:field="*{code}" class="form-control" placeholder="코드를 입력하세요">

@@ -21,7 +21,7 @@
     </div>
     <h4 class="mb-3"> 회원 추가</h4>
 
-    <form action="member.html" th:action th:object="${signupRequest}" method="post">
+    <form action="member.html" th:action th:object="${signupForm}" method="post">
         <div>
             <label for="email" >이메일</label>
             <input id="email" type="text" th:field="*{email}" class="form-control" placeholder="이메일">

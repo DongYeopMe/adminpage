@@ -1,10 +1,9 @@
 package adminpage.project.product.service;
 
 import adminpage.project.global.BusinessException;
-import adminpage.project.global.ErrorCode;
-import adminpage.project.product.dto.ProductListRequest;
+import adminpage.project.product.dto.ProductForm;
+import adminpage.project.product.dto.ProductListForm;
 import adminpage.project.product.dto.ProductListResponse;
-import adminpage.project.product.dto.ProductRequest;
 import adminpage.project.product.dto.ProductResponse;
 import adminpage.project.product.entity.Product;
 import adminpage.project.product.repository.ProductRepository;
@@ -12,11 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static adminpage.project.global.ErrorCode.PRODUCT_NOT_FOUND;
-import static adminpage.project.product.dto.ProductRequest.productConvertProductRequest;
 import static adminpage.project.product.dto.ProductResponse.productConvertProductResponse;
 
 @Service
@@ -24,21 +21,21 @@ import static adminpage.project.product.dto.ProductResponse.productConvertProduc
 public class ProductService {
     private final ProductRepository productRepository;
     @Transactional
-    public void saveProduct(ProductRequest productRequest){
-        if(productRepository.findByCode(productRequest.getCode()).isPresent()){
+    public void saveProduct(ProductForm productForm){
+        if(productRepository.findByCode(productForm.getCode()).isPresent()){
             System.out.println("이미 있는 제품입니다.");
         }
-        Product product= productRequest.productRequestconvertProduct(productRequest);
+        Product product= productForm.productRequestconvertProduct(productForm);
         productRepository.save(product);
     }
     @Transactional
-    public void updateProduct(Long productId,ProductRequest productRequest){
+    public void updateProduct(Long productId, ProductForm productForm){
         Product findproduct = productRepository.findById(productId).orElseThrow(() -> new BusinessException(PRODUCT_NOT_FOUND));
-        findproduct.setCategory(productRequest.getCategory());
-        findproduct.setName(productRequest.getName());
-        findproduct.setCode(productRequest.getCode());
-        findproduct.setPrice(productRequest.getPrice());
-        findproduct.setOpen(productRequest.isOpen());
+        findproduct.setCategory(productForm.getCategory());
+        findproduct.setName(productForm.getName());
+        findproduct.setCode(productForm.getCode());
+        findproduct.setPrice(productForm.getPrice());
+        findproduct.setOpen(productForm.isOpen());
     }
     @Transactional
     public void deleteProduct(Long id){
@@ -51,8 +48,8 @@ public class ProductService {
                 ()-> new BusinessException(PRODUCT_NOT_FOUND));
         return productConvertProductResponse(product);
     }
-    public List<ProductListResponse> getProducts(ProductListRequest productListRequest){
-        List<ProductListResponse> productList= productRepository.findByProductsByCodeOrNameOrCategory(productListRequest);
+    public List<ProductListResponse> getProducts(ProductListForm productListForm){
+        List<ProductListResponse> productList= productRepository.findByProductsByCodeOrNameOrCategory(productListForm);
         return productList;
     }
 

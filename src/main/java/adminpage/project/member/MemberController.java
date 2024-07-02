@@ -1,6 +1,5 @@
 package adminpage.project.member;
 
-import adminpage.project.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +15,12 @@ public class MemberController {
 
     @GetMapping("/add")
     public String addForm(Model model){
-        model.addAttribute("signupRequest",new SignupRequest());
+        model.addAttribute("signupRequest",new SignupForm());
         return "member/addForm";
     }
     @PostMapping("/add")
-    public String addMember(SignupRequest signupRequest){
-        memberService.save(signupRequest);
+    public String addMember(SignupForm signupForm){
+        memberService.save(signupForm);
         return "redirect:/member/getMemberList";
     }
     @GetMapping("/edit/{memberId}")
@@ -31,8 +30,8 @@ public class MemberController {
         return "member/editForm";
     }
     @PostMapping("/edit/{memberId}")
-    public String editMember(@PathVariable Long memberId ,@ModelAttribute MemberRequest memberRequest){
-        memberService.updateMember(memberId,memberRequest);
+    public String editMember(@PathVariable Long memberId ,@ModelAttribute MemberForm memberForm){
+        memberService.updateMember(memberId, memberForm);
         return "redirect:/member/getMemberList";
     }
     @GetMapping("/getMember/{memberId}")
@@ -42,10 +41,10 @@ public class MemberController {
         return "member/member";
     }
     @GetMapping("/getMemberList")
-    public String getMember(MemberListRequest memberListRequest, Model model){
-        List<MemberResponse> memberResponseList = memberService.getMemberList(memberListRequest);
+    public String getMember(MemberListForm memberListForm, Model model){
+        List<MemberResponse> memberResponseList = memberService.getMemberList(memberListForm);
         model.addAttribute("memberList",memberResponseList);
-        model.addAttribute("memberListRequest",memberListRequest);
+        model.addAttribute("memberListRequest", memberListForm);
         return "member/members";
     }
 

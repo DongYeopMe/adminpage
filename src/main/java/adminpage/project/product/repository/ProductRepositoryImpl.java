@@ -1,8 +1,7 @@
 package adminpage.project.product.repository;
 
-import adminpage.project.product.dto.ProductListRequest;
+import adminpage.project.product.dto.ProductListForm;
 import adminpage.project.product.dto.ProductListResponse;
-import adminpage.project.product.dto.ProductResponse;
 import adminpage.project.product.entity.Category;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.Projections;
@@ -18,7 +17,7 @@ import static adminpage.project.product.entity.QProduct.product;
 public class ProductRepositoryImpl implements ProductRepositoryCustom{
     private final JPAQueryFactory queryFactory;
     @Override
-    public List<ProductListResponse> findByProductsByCodeOrNameOrCategory(ProductListRequest productListRequest) {
+    public List<ProductListResponse> findByProductsByCodeOrNameOrCategory(ProductListForm productListForm) {
         return queryFactory.select(Projections.fields(
                         ProductListResponse.class,
         product.id,
@@ -29,7 +28,7 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom{
         product.open
         ))
                 .from(product)
-                .where(condNameLike(productListRequest.getName()),condCodeLike(productListRequest.getCode()),condCategory(productListRequest.getCategory()))
+                .where(condNameLike(productListForm.getName()),condCodeLike(productListForm.getCode()),condCategory(productListForm.getCategory()))
                 .orderBy(product.id.desc())
                 .fetch();
     }

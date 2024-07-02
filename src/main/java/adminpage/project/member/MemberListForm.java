@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberListRequest {
+public class MemberListForm {
     private Rank rank;
     private Gender gender;
     private String name;

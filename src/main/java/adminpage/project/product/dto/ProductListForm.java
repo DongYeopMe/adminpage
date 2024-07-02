@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductListRequest {
+public class ProductListForm {
     private Category category;
 
     private String name;

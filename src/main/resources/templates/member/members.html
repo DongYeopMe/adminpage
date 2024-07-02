@@ -11,7 +11,7 @@
     <div class="py-5 text-center">
         <h1>회원 목록</h1>
     </div>
-    <form th:action th:object="${memberListRequest}">
+    <form th:action th:object="${memberListForm}">
         <div class="row">
             <div class="col" style="width: 150px; float: left;">
                 <select class="form-control" name="gender" style="width: 150px; float: left;">
@@ -19,7 +19,7 @@
                     <option th:each="gender : ${T(adminpage.project.member.entity.Gender).values()}"
                             th:value="${gender.name()}"
                             th:text="${gender.name()}"
-                            th:selected="${memberListRequest?.gender?.name() eq gender.name()} ? 'true' : 'false'">
+                            th:selected="${memberListForm?.gender?.name() eq gender.name()} ? 'true' : 'false'">
                     </option>
                 </select>
             </div>
@@ -29,7 +29,7 @@
                     <option th:each="rank : ${T(adminpage.project.member.entity.Rank).values()}"
                             th:value="${rank.name()}"
                             th:text="${rank.name()}"
-                            th:selected="${memberListRequest?.rank?.name() eq rank.name()} ? 'true' : 'false'">
+                            th:selected="${memberListForm?.rank?.name() eq rank.name()} ? 'true' : 'false'">
                     </option>
                 </select>
             </div>

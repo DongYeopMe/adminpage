@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @Getter
 @NoArgsConstructor
-public class ProductRequest {
+public class ProductForm {
     @NotBlank(message = "모델명 입력해주세요")
     private String name;
 
@@ -26,7 +26,7 @@ public class ProductRequest {
 
     private boolean open;
 
-    public Product productRequestconvertProduct(ProductRequest productRequest){
+    public Product productRequestconvertProduct(ProductForm productForm){
         Product product= Product.builder().name(name)
                 .code(code)
                 .category(category)
@@ -35,13 +35,13 @@ public class ProductRequest {
         return product;
     }
 
-    public static ProductRequest productConvertProductRequest(Product product){
-        ProductRequest productRequest= new ProductRequest();
-        productRequest.setName(product.getName());
-        productRequest.setCode(product.getCode());
-        productRequest.setCategory(product.getCategory());
-        productRequest.setPrice(product.getPrice());
-        productRequest.setOpen(productRequest.isOpen());
-        return productRequest;
+    public static ProductForm productConvertProductRequest(Product product){
+        ProductForm productForm = new ProductForm();
+        productForm.setName(product.getName());
+        productForm.setCode(product.getCode());
+        productForm.setCategory(product.getCategory());
+        productForm.setPrice(product.getPrice());
+        productForm.setOpen(productForm.isOpen());
+        return productForm;
     }
 }

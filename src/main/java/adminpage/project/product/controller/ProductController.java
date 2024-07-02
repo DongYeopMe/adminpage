@@ -2,12 +2,10 @@ package adminpage.project.product.controller;
 
 import adminpage.project.global.BusinessException;
 import adminpage.project.global.ResultResponse;
-import adminpage.project.product.dto.ProductListRequest;
+import adminpage.project.product.dto.ProductForm;
+import adminpage.project.product.dto.ProductListForm;
 import adminpage.project.product.dto.ProductListResponse;
-import adminpage.project.product.dto.ProductRequest;
 import adminpage.project.product.dto.ProductResponse;
-import adminpage.project.product.entity.Category;
-import adminpage.project.product.entity.Product;
 import adminpage.project.product.repository.ProductRepository;
 import adminpage.project.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
 
 import static adminpage.project.global.ErrorCode.PRODUCT_CANT_DELETE;
 import static adminpage.project.global.ResultCode.MEMBER_DELETE_SUCCESS;
@@ -35,13 +32,13 @@ public class ProductController {
     //상품 추가 폼
     @GetMapping("/add")
     public String addForm(Model model){
-        model.addAttribute("productRequest",new ProductRequest());
+        model.addAttribute("productRequest",new ProductForm());
         return "product/addForm";
     }
     //상품 추가
     @PostMapping("/add")
-    public String addProduct(@Validated @ModelAttribute("productRequest") ProductRequest productRequest, RedirectAttributes redirectAttributes){
-        productService.saveProduct(productRequest);
+    public String addProduct(@Validated @ModelAttribute("productRequest") ProductForm productForm, RedirectAttributes redirectAttributes){
+        productService.saveProduct(productForm);
         return "redirect:/products/list";
     }
     // 상품 수정 폼
@@ -53,8 +50,8 @@ public class ProductController {
     }
     //상품 수정
     @PostMapping("/edit/{productId}")
-    public String edit(@PathVariable Long productId, @ModelAttribute ProductRequest productRequest, RedirectAttributes redirectAttributes) {
-        productService.updateProduct(productId,productRequest);
+    public String edit(@PathVariable Long productId, @ModelAttribute ProductForm productForm, RedirectAttributes redirectAttributes) {
+        productService.updateProduct(productId, productForm);
         return "redirect:/products/list";
     }
     //상품 조회
@@ -66,10 +63,10 @@ public class ProductController {
     }
     // 상품 리스트 조회
     @GetMapping("/list")
-    public String products(Model model ,@ModelAttribute ProductListRequest productListRequest) {
-        List<ProductListResponse> products = productService.getProducts(productListRequest);
+    public String products(Model model ,@ModelAttribute ProductListForm productListForm) {
+        List<ProductListResponse> products = productService.getProducts(productListForm);
         model.addAttribute("productList", products);
-        model.addAttribute("productListRequest",productListRequest);
+        model.addAttribute("productListRequest", productListForm);
         return "product/products";
     }
     //상품 삭제

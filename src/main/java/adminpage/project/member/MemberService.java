@@ -15,24 +15,24 @@ import static adminpage.project.member.MemberResponse.covertmemberResponse;
 public class MemberService {
     final private MemberRepository memberRepository;
 
-    public void save(SignupRequest signupRequest) {
-        Member member=signupRequest.covertMember(signupRequest);
+    public void save(SignupForm signupForm) {
+        Member member= signupForm.covertMember(signupForm);
         memberRepository.save(member);
     }
-    public void updateMember(Long memberId,MemberRequest memberRequest){
+    public void updateMember(Long memberId, MemberForm memberForm){
         Member member=memberRepository.findById(memberId).orElseThrow(() ->new BusinessException(ErrorCode.MEMBER_NOT_FOUND));
-        member.setEmail(memberRequest.getEmail());
-        member.setName(memberRequest.getName());
-        member.setPassword(memberRequest.getPassword());
-        member.setGender(memberRequest.getGender());
-        member.setRank(memberRequest.getRank());
+        member.setEmail(memberForm.getEmail());
+        member.setName(memberForm.getName());
+        member.setPassword(memberForm.getPassword());
+        member.setGender(memberForm.getGender());
+        member.setRank(memberForm.getRank());
     }
     public MemberResponse getMember(Long memberId) {
         Member member=memberRepository.findById(memberId).orElseThrow(() ->new BusinessException(ErrorCode.MEMBER_NOT_FOUND));
         return covertmemberResponse(member);
     }
-    public List<MemberResponse> getMemberList(MemberListRequest memberListRequest){
-        List<MemberResponse> responseList= memberRepository.findMemberResponselist(memberListRequest);
+    public List<MemberResponse> getMemberList(MemberListForm memberListForm){
+        List<MemberResponse> responseList= memberRepository.findMemberResponselist(memberListForm);
         return responseList;
     }
 }

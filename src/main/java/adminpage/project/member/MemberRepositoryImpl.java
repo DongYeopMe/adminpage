@@ -2,7 +2,6 @@ package adminpage.project.member;
 
 import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Rank;
-import adminpage.project.product.entity.Category;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -17,7 +16,7 @@ import static adminpage.project.member.entity.QMember.member;
 public class MemberRepositoryImpl implements MemberRepositoryCustom{
     private final JPAQueryFactory queryFactory;
     @Override
-    public List<MemberResponse> findMemberResponselist(MemberListRequest memberListRequest) {
+    public List<MemberResponse> findMemberResponselist(MemberListForm memberListForm) {
         return queryFactory.select(Projections.fields(
                 MemberResponse.class,
                 member.id,
@@ -27,7 +26,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
                 member.rank
         ))
                 .from(member)
-                .where(condRank(memberListRequest.getRank()),condGender(memberListRequest.getGender()),condLikeName(memberListRequest.getName()))
+                .where(condRank(memberListForm.getRank()),condGender(memberListForm.getGender()),condLikeName(memberListForm.getName()))
                 .orderBy(member.id.desc())
                 .fetch();
     }

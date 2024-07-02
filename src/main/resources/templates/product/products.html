@@ -11,7 +11,7 @@
     <div class="py-5 text-center">
         <h1>상품 목록</h1>
     </div>
-    <form th:action th:object="${productListRequest}">
+    <form th:action th:object="${productListForm}">
         <div class="row">
             <div class="col" style="width: 150px; float: left;">
                 <select class="form-control" name="category" style="width: 150px; float: left;">
@@ -19,7 +19,7 @@
                     <option th:each="category : ${T(adminpage.project.product.entity.Category).values()}"
                             th:value="${category.name()}"
                             th:text="${category.name()}"
-                            th:selected="${productListRequest?.category?.name() eq category.name()} ? 'true' : 'false'">
+                            th:selected="${productListForm?.category?.name() eq category.name()} ? 'true' : 'false'">
                     </option>
                 </select>
             </div>

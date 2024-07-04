@@ -1,4 +1,4 @@
-package adminpage.project.member;
+package adminpage.project.member.dto;
 
 import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Rank;

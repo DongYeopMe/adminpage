@@ -1,5 +1,10 @@
-package adminpage.project.member;
+package adminpage.project.member.controller;
 
+import adminpage.project.member.dto.MemberForm;
+import adminpage.project.member.dto.MemberListForm;
+import adminpage.project.member.dto.MemberResponse;
+import adminpage.project.member.dto.SignupForm;
+import adminpage.project.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +20,7 @@ public class MemberController {
 
     @GetMapping("/add")
     public String addForm(Model model){
-        model.addAttribute("signupRequest",new SignupForm());
+        model.addAttribute("signupForm",new SignupForm());
         return "member/addForm";
     }
     @PostMapping("/add")

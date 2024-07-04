@@ -1,14 +1,19 @@
-package adminpage.project.member;
+package adminpage.project.member.service;
 
 import adminpage.project.global.BusinessException;
 import adminpage.project.global.ErrorCode;
+import adminpage.project.member.repository.MemberRepository;
+import adminpage.project.member.dto.MemberForm;
+import adminpage.project.member.dto.MemberListForm;
+import adminpage.project.member.dto.MemberResponse;
+import adminpage.project.member.dto.SignupForm;
 import adminpage.project.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static adminpage.project.member.MemberResponse.covertmemberResponse;
+import static adminpage.project.member.dto.MemberResponse.covertmemberResponse;
 
 @Service
 @RequiredArgsConstructor

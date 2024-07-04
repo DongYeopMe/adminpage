@@ -1,4 +1,4 @@
-package adminpage.project.member;
+package adminpage.project.member.dto;
 
 import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Member;
@@ -11,11 +11,11 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 public class MemberResponse {
-    private Long id;
-
-    private String email;
+    private String userId;
 
     private String name;
+
+    private String email;
 
     private Gender gender;
 
@@ -23,7 +23,7 @@ public class MemberResponse {
 
     public static MemberResponse covertmemberResponse(Member member){
         MemberResponse memberResponse= new MemberResponse();
-        memberResponse.setId(member.getId());
+        memberResponse.setUserId(member.getUserid());
         memberResponse.setEmail(member.getEmail());
         memberResponse.setName(member.getName());
         memberResponse.setGender(member.getGender());

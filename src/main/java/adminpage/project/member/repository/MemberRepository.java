@@ -1,4 +1,4 @@
-package adminpage.project.member;
+package adminpage.project.member.repository;
 
 import adminpage.project.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;

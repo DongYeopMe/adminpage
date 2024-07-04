@@ -1,5 +1,7 @@
-package adminpage.project.member;
+package adminpage.project.member.repository;
 
+import adminpage.project.member.dto.MemberListForm;
+import adminpage.project.member.dto.MemberResponse;
 import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Rank;
 import com.querydsl.core.types.Predicate;

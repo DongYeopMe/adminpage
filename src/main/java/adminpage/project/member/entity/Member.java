@@ -16,13 +16,15 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="member_id")
     private Long id;
-    @Email
-    @Column(name="member_email")
-    private String email;
+    @Column(name="member_userid")
+    private String userid;
     @Column(name="member_password")
     private String password;
     @Column(name="member_name")
     private String name;
+    @Email
+    @Column(name="member_email")
+    private String email;
     @Column(name="member_gender")
     @Enumerated(EnumType.STRING)
     private Gender gender;

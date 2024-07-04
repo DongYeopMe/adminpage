@@ -1,4 +1,4 @@
-package adminpage.project.member;
+package adminpage.project.member.dto;
 
 import adminpage.project.member.entity.Gender;
 import adminpage.project.member.entity.Member;
@@ -13,6 +13,10 @@ import lombok.*;
 @NoArgsConstructor
 public class SignupForm {
 
+    private String userId;
+
+    private String name;
+
     private String email;
 
     private String password;
@@ -20,8 +24,8 @@ public class SignupForm {
     private Gender gender;
 
     private Rank rank;
-    Member covertMember(SignupForm signupForm){
+    public Member covertMember(SignupForm signupForm){
         return Member.builder().
-                email(email).password(password).gender(gender).rank(rank).build();
+                email(email).name(name).password(password).gender(gender).rank(rank).build();
     }
 }

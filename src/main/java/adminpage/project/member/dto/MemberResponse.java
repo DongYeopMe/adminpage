@@ -11,7 +11,9 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 public class MemberResponse {
-    private String userId;
+    private Long id;
+
+    private String userid;
 
     private String name;
 
@@ -23,7 +25,8 @@ public class MemberResponse {
 
     public static MemberResponse covertmemberResponse(Member member){
         MemberResponse memberResponse= new MemberResponse();
-        memberResponse.setUserId(member.getUserid());
+        memberResponse.setId(memberResponse.getId());
+        memberResponse.setUserid(member.getUserid());
         memberResponse.setEmail(member.getEmail());
         memberResponse.setName(member.getName());
         memberResponse.setGender(member.getGender());

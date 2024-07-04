@@ -22,8 +22,9 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom{
         return queryFactory.select(Projections.fields(
                 MemberResponse.class,
                 member.id,
+                member.userid,
+                        member.name,
                 member.email,
-                member.name,
                 member.gender,
                 member.rank
         ))

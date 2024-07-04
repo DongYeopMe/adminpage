@@ -43,19 +43,21 @@
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>이메일</th>
+                <th>번호</th>
+                <th>아이디</th>
+                <th>닉네임</th>
                 <th>성별</th>
-                <th>이름</th>
+                <th>이메일</th>
                 <th>등급</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="member : ${memberList}">
-                <td><a th:href="@{/member/getMember/{memberId}(memberId=${member.id})}" th:text="${member.id}"></a></td>
-                <td><a th:href="@{/member/getMember/{memberId}(memberId=${member.id})}" th:text="${member.email}"></a></td>
-                <td th:text="${member.gender}"></td>
+                <td th:text="${member.id}"><a th:href="@{/member/getMember/{memberId}(memberId=${member.id})}"></a></td>
+                <td th:text="${member.userid}"></td>
                 <td th:text="${member.name}"></td>
+                <td th:text="${member.gender}"></td>
+                <td th:text="${member.email}"></td>
                 <td th:text="${member.rank}"></td>
             </tr>
             </tbody>

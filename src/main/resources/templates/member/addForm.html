@@ -19,18 +19,24 @@
     <div class="py-5 text-center">
         <h2> 회원 가입</h2>
     </div>
-    <form action="member.html" th:action th:object="${signupForm}" method="post">
+    <form action="member.html" th:action th:object="${addUserForm}" method="post">
         <div>
             <label for="userId" th:text="#{label.member.userId}">아이디</label>
-            <input id="userId" type="text" th:field="*{userId}" class="form-control" placeholder="아이디">
+            <input id="userId" type="text" th:field="*{userId}" class="form-control"
+                   th:errorclass="field-error" placeholder="아이디">
+            <div class="field-error" th:error="*{userId}">아이디 오류</div>
         </div>
         <div>
             <label for="password" >비밀번호</label>
-            <input id="password" type="text" th:field="*{password}" class="form-control" placeholder="비밀번호">
+            <input id="password" type="text" th:field="*{password}" class="form-control"
+                   th:errorclass="field-error" placeholder="비밀번호">
+            <div class="field-error" th:error="*{password}">비밀번호 오류</div>
         </div>
         <div>
             <label for="name" >닉네임</label>
-            <input id="name" type="text" th:field="*{name}" class="form-control" placeholder="닉네임">
+            <input id="name" type="text" th:field="*{name}" class="form-control"
+                   th:errorclass="field-error" placeholder="닉네임">
+            <div class="field-error" th:error="*{name}">닉네임 오류</div>
         </div>
         <div>
             <label for="gender" th:text="#{label.member.gender}">성별</label>
@@ -44,7 +50,9 @@
         </div>
         <div>
             <label for="email" th:text="#{label.member.email}">이메일</label>
-            <input id="email" type="text" th:field="*{email}" class="form-control" placeholder="이메일">
+            <input id="email" type="text" th:field="*{email}" class="form-control"
+                   th:errorclass="field-error" placeholder="이메일">
+            <div class="field-error" th:error="*{email}">이메일 오류</div>
         </div>
         <div>
             <label for="rank" th:text="#{label.member.rank}">등급</label>
@@ -60,7 +68,7 @@
         <div class="row">
             <div class="col">
                 <button
-                        class="w-100 btn btn-primary btn-lg" type="submit"th:text="#{button.signup}">가입
+                        class="w-100 btn btn-primary btn-lg" type="submit"th:text="#{button.addUser}">가입
                 </button>
             </div>
             <div class="col">

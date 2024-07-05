@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @Getter
 @NoArgsConstructor
-public class MemberForm {
+public class MemberEditForm {
     private String email;
 
     private String password;

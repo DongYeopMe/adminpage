@@ -1,13 +1,15 @@
 package adminpage.project.member.controller;
 
-import adminpage.project.member.dto.MemberForm;
+import adminpage.project.member.dto.MemberEditForm;
 import adminpage.project.member.dto.MemberListForm;
 import adminpage.project.member.dto.MemberResponse;
-import adminpage.project.member.dto.SignupForm;
+import adminpage.project.member.dto.addUserForm;
 import adminpage.project.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,12 +22,12 @@ public class MemberController {
 
     @GetMapping("/add")
     public String addForm(Model model){
-        model.addAttribute("signupForm",new SignupForm());
+        model.addAttribute("addUserForm",new addUserForm());
         return "member/addForm";
     }
     @PostMapping("/add")
-    public String addMember(SignupForm signupForm){
-        memberService.save(signupForm);
+    public String addMember(@Validated addUserForm addUserForm, BindingResult bindingResult){
+        memberService.save(addUserForm);
         return "redirect:/member/getMemberList";
     }
     @GetMapping("/edit/{memberId}")
@@ -35,8 +37,8 @@ public class MemberController {
         return "member/editForm";
     }
     @PostMapping("/edit/{memberId}")
-    public String editMember(@PathVariable Long memberId ,@ModelAttribute MemberForm memberForm){
-        memberService.updateMember(memberId, memberForm);
+    public String editMember(@PathVariable Long memberId ,@Validated MemberEditForm memberEditForm,BindingResult bindingResult){
+        memberService.updateMember(memberId, memberEditForm);
         return "redirect:/member/getMemberList";
     }
     @GetMapping("/getMember/{memberId}")

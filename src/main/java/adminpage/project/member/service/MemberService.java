@@ -2,11 +2,11 @@ package adminpage.project.member.service;
 
 import adminpage.project.global.BusinessException;
 import adminpage.project.global.ErrorCode;
+import adminpage.project.member.dto.addUserForm;
 import adminpage.project.member.repository.MemberRepository;
-import adminpage.project.member.dto.MemberForm;
+import adminpage.project.member.dto.MemberEditForm;
 import adminpage.project.member.dto.MemberListForm;
 import adminpage.project.member.dto.MemberResponse;
-import adminpage.project.member.dto.SignupForm;
 import adminpage.project.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,17 +20,17 @@ import static adminpage.project.member.dto.MemberResponse.covertmemberResponse;
 public class MemberService {
     final private MemberRepository memberRepository;
 
-    public void save(SignupForm signupForm) {
-        Member member= signupForm.covertMember(signupForm);
+    public void save(addUserForm addUserForm) {
+        Member member= addUserForm.covertMember(addUserForm);
         memberRepository.save(member);
     }
-    public void updateMember(Long memberId, MemberForm memberForm){
+    public void updateMember(Long memberId, MemberEditForm memberEditForm){
         Member member=memberRepository.findById(memberId).orElseThrow(() ->new BusinessException(ErrorCode.MEMBER_NOT_FOUND));
-        member.setEmail(memberForm.getEmail());
-        member.setName(memberForm.getName());
-        member.setPassword(memberForm.getPassword());
-        member.setGender(memberForm.getGender());
-        member.setRank(memberForm.getRank());
+        member.setEmail(memberEditForm.getEmail());
+        member.setName(memberEditForm.getName());
+        member.setPassword(memberEditForm.getPassword());
+        member.setGender(memberEditForm.getGender());
+        member.setRank(memberEditForm.getRank());
     }
     public MemberResponse getMember(Long memberId) {
         Member member=memberRepository.findById(memberId).orElseThrow(() ->new BusinessException(ErrorCode.MEMBER_NOT_FOUND));

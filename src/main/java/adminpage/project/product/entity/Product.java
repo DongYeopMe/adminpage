@@ -16,19 +16,19 @@ public class Product {
     @Column(name="product_id")
     private Long id;
 
-    @Column(name="name",nullable = false)
+    @Column(name="product_name",nullable = false)
     private String name;
 
     @Column(name="product_code",nullable = false,unique = true)
     private String code;
 
-    @Column(name="category",nullable = false)
+    @Column(name="product_category",nullable = false)
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @Column(name="price", nullable = false)
+    @Column(name="product_price", nullable = false)
     private int price;
 
-    @Column(name="open", nullable = false)
+    @Column(name="product_open", nullable = false)
     private Boolean open;
 }
